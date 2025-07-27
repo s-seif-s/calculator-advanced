@@ -53,6 +53,7 @@ body {
     content: "1--->2--->3";
     position: absolute;
     top: -15px;
+    font-size: small;
 }
 .ball {
     display: inline-block;
