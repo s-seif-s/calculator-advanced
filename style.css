@@ -1,0 +1,185 @@
+:root {
+    --mainBackgroundColor: hsl(222, 26%, 31%);
+    --toggle-keyPadBackgroundColor: hsl(223, 31%, 20%);
+    --screenBackgroundColor: hsl(224, 36%, 15%);
+    --keyBackgroundColor: hsl(30, 25%, 89%);
+    --keyShadowBackgroundColor: hsl(28, 16%, 65%);
+    --resetBackgroundColor: hsl(225, 21%, 49%);
+    --resetShadowBackgroundColor: hsl(224, 28%, 35%);
+    --toggle-equalKeyColor: hsl(6, 63%, 50%);
+    --equalKeyShadowColor: hsl(6, 70%, 34%);
+    --keyColor: hsl(221, 14%, 31%);
+    --otherColor: hsl(0, 0%, 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--mainBackgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: monospace;
+    user-select: none;
+}
+.describsion {
+    font-size: 25px;
+    font-weight: bold;
+    width: 460px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--otherColor);
+}
+.theme > span {
+    font-size: medium;
+    letter-spacing: 0.5px;
+}
+.changeTheme {
+    width: 90px;
+    height: 25px;
+    background-color: var(--toggle-keyPadBackgroundColor);
+    border-radius: 20px;
+    display: inline-block;
+    padding: 2.5px;
+    position: relative;
+}
+.changeTheme::before {
+    content: "1--->2--->3";
+    position: absolute;
+    top: -15px;
+}
+.ball {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--toggle-equalKeyColor);
+    transition: 1s;
+    transform: translate(0);
+}
+.level {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: transparent;
+}
+.one {
+    left: 3px;
+}
+.two {
+    left: 35px;
+}
+.three {
+    right: 3px;
+}
+p {
+    display: flex;
+    background-color: var(--screenBackgroundColor);
+    width: 460px;
+    height: 120px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 40px;
+    padding: 20px;
+    align-items: center;
+    justify-content: end;
+    color: var(--otherColor);
+}
+.grid {
+    width: 460px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas:
+        "s s s s"
+        "s s s s"
+        "s s s s"
+        "s s s s"
+        "b b q q";
+    background-color: var(--toggle-keyPadBackgroundColor);
+    border-radius: 10px;
+    padding: 15px 15px 15px 22px;
+}
+.grid span {
+    width: 90px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    color: var(--keyColor);
+    box-shadow: 1px 3px var(--keyShadowBackgroundColor);
+    background-color: var(--keyBackgroundColor);
+}
+.grid span:hover {
+    transform: translate(0.5px,1px);
+    box-shadow: none;
+}
+.grid span:nth-child(4){
+    background-color: var(--resetBackgroundColor);
+    box-shadow: 1px 3px var(--resetShadowBackgroundColor);
+    color: var(--otherColor);
+}
+.grid span:last-of-type{
+    grid-area: q;
+    width: 190px;
+    color: var(--otherColor);
+    background-color: var(--toggle-equalKeyColor);
+    box-shadow: 1px 3px var(--equalKeyShadowColor);
+}
+.grid span:nth-child(17){
+    grid-area: b;
+    width: 190px;
+    color: var(--otherColor);
+    background-color: var(--resetBackgroundColor);
+    box-shadow: 1px 3px var(--resetShadowBackgroundColor);
+}
+
+@media (max-width: 768px) {
+    .describsion , p , .grid{
+        width: 350px;
+    }
+    p {
+        font-size: 20px;
+        height: 100px;
+    }
+    .grid {
+        height: 350px;
+    }
+    .grid span {
+        width: 60px;
+        height: 40px;
+    }
+    .grid span:last-of-type ,.grid span:nth-child(17) {
+        width: 140px;
+    }
+}
+@media (max-width: 425px) {
+    .describsion , p , .grid{
+        width: 300px;
+    }
+    p {
+        font-size: 18px;
+        height: 80px;
+    }
+    .grid {
+        height: 300px;
+    }
+    .grid span {
+        width: 50px;
+        height: 30px;
+    }
+    .grid span:last-of-type ,.grid span:nth-child(17) {
+        width: 120px;
+    }
+}
