@@ -50,7 +50,7 @@ body {
     position: relative;
 }
 .changeTheme::before {
-    content: "1--->2--->3";
+    content: "1-->2-->3";
     position: absolute;
     top: -15px;
     font-size: small;
